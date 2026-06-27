@@ -1,0 +1,1089 @@
+{
+  "eval_name": "rag_answer_eval",
+  "eval_file": "D:\\PyCharmProjects\\SmartEnv-Gateway SE-100 技术支持系统\\data\\eval\\answer_eval_set.jsonl",
+  "run_config": {
+    "top_k": 5,
+    "candidate_k": 20,
+    "rrf_k": 60,
+    "min_rerank_score": null
+  },
+  "summary": {
+    "total_cases": 10,
+    "passed_cases": 10,
+    "failed_cases": 0,
+    "error_count": 0,
+    "pass_rate": 1.0,
+    "has_context_ok_rate": 1.0,
+    "citation_ok_rate": 1.0,
+    "citation_id_valid_ok_rate": 1.0,
+    "citation_format_ok_rate": 1.0,
+    "citation_used_ok_rate": 1.0,
+    "must_include_ok_rate": 1.0,
+    "must_not_include_ok_rate": 1.0,
+    "expected_context_ok_rate": 1.0,
+    "by_answer_type": {
+      "product_boundary": {
+        "total_cases": 1,
+        "passed_cases": 1,
+        "failed_cases": 0,
+        "pass_rate": 1.0
+      },
+      "troubleshooting": {
+        "total_cases": 7,
+        "passed_cases": 7,
+        "failed_cases": 0,
+        "pass_rate": 1.0
+      },
+      "configuration": {
+        "total_cases": 1,
+        "passed_cases": 1,
+        "failed_cases": 0,
+        "pass_rate": 1.0
+      },
+      "case_summary": {
+        "total_cases": 1,
+        "passed_cases": 1,
+        "failed_cases": 0,
+        "pass_rate": 1.0
+      }
+    },
+    "failed_query_ids": []
+  },
+  "details": [
+    {
+      "line_no": 1,
+      "query_id": "se100_answer_001",
+      "query": "SE-100 是什么产品？它可以直接控制工业设备吗？",
+      "answer_type": "product_boundary",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "91dec8725aeb4283a229ab87d706c4ac_0",
+          "91dec8725aeb4283a229ab87d706c4ac_4",
+          "f19379b800084f1c9009154f1cfe81ec_0",
+          "f19379b800084f1c9009154f1cfe81ec_6"
+        ],
+        "matched_expected_chunk_ids": [
+          "91dec8725aeb4283a229ab87d706c4ac_0",
+          "f19379b800084f1c9009154f1cfe81ec_0",
+          "f19379b800084f1c9009154f1cfe81ec_6"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C2"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C2"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "SE-100 是一款智能环境监测网关，主要用于采集温度、湿度、门磁状态和外接传感器数据，并通过网络上报到云端平台。它适合办公室、实验室、仓储间和设备间等场景使用 [C1]。SE-100 不建议直接控制工业设备，因为它不是工业控制器，也不适合用于安全生产强制监测等高风险场景 [C2]。",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "91dec8725aeb4283a229ab87d706c4ac_0",
+          "source": "03_after_sales_faq.md#chunk_0",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "# SmartEnv-Gateway SE-100 售后 FAQ\n\n## 1. 文档说明\n\n本文档整理 SmartEnv-Gateway SE-100 智能环境监测网关的常见售后问答。内容面向普通用户和一线客服，重点覆盖设备联网、平台显示、配置页、告警、OTA 升级、日志导出和售后处理边界。\n\n技术支持助手回答问题时，"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "f19379b800084f1c9009154f1cfe81ec_0",
+          "source": "01_product_overview.md#chunk_0",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "# SmartEnv-Gateway SE-100 产品概述\n\n## 1. 文档说明\n\n本文档用于介绍 SmartEnv-Gateway SE-100 智能环境监测网关的基本定位、主要功能、联网方式、指示灯含义和使用边界。\n\nSE-100 是一个受控虚拟产品，用于构建 Personal Knowledge Assist"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "f19379b800084f1c9009154f1cfe81ec_6",
+          "source": "01_product_overview.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "升级过程中，CLOUD 指示灯会快闪。升级完成后，设备会自动重启。\n\n升级期间请不要断电。断电可能导致升级失败。若升级失败，设备会保留当前可用版本，并在下一次联网后重新检查升级任务。\n\n用户一般不需要手动上传固件包。OTA 升级任务由平台管理员或售后人员发起。\n\n---\n\n## 11. 使用边界\n\nSE-100 是环境"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "f19379b800084f1c9009154f1cfe81ec_2",
+          "source": "01_product_overview.md#chunk_2",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 4.2 仓储环境监测\n\n用户将 SE-100 放置在仓储间，用于监测温湿度是否超过设定范围。当湿度过高或温度异常时，SE-100 会在本地显示告警状态，并将告警事件上报到云端。\n\n### 4.3 实验室设备间监测\n\n实验室管理员可以通过 SE-100 监测设备间环境变化。如果网络中断，设备会保留最近的本地状态；"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "91dec8725aeb4283a229ab87d706c4ac_5",
+          "source": "03_after_sales_faq.md#chunk_5",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "---\n\n## 9. 日志与售后问题\n\n### Q24：什么时候需要导出运行日志？\n\n以下情况建议导出运行日志：\n\n1. CLOUD 长时间慢闪。\n2. 平台显示离线但设备指示灯正常。\n3. 数据长时间不上报。\n4. OTA 连续升级失败。\n5. 本地 Web 配置页无法访问。\n6. 外接传感器持续离线。\n7. 设备频"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 2,
+      "query_id": "se100_answer_002",
+      "query": "CLOUD 云端灯一直慢闪，设备连不上云端平台，应该优先排查什么？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "20de77d0679d4496b307553e4ec6e0dc_4",
+          "20de77d0679d4496b307553e4ec6e0dc_3",
+          "91dec8725aeb4283a229ab87d706c4ac_1",
+          "40a8598aac8f479ba621edf03b14311d_1"
+        ],
+        "matched_expected_chunk_ids": [
+          "20de77d0679d4496b307553e4ec6e0dc_4"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "service_invalid_citation_ids": [
+          "C7"
+        ],
+        "answer_was_cleaned": true,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，当 CLOUD 云端灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关[C1][C2][C3]。\n\n建议优先排查以下几点：\n1. MQTT 服务器地址是否填写正确。\n2. MQTT 端口是否填写正确。\n3. 设备密钥是否与云端平台登记信息一致。\n4. 当前网络是否可以访问外网。\n5. 云端平台是否暂时不可用。\n6. 设备时间是否异常导致认证失败。\n\n如果以上排查步骤均无问题，可以考虑导出运行日志交给售后分析。[C4]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_7",
+          "source": "02_common_troubleshooting.md#chunk_7",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "CLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断电\n* 局域网断开\n* MQ"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_7",
+          "source": "02_common_troubleshooting.md#chunk_7",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "CLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断电\n* 局域网断开\n* MQ"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_4",
+          "source": "02_common_troubleshooting.md#chunk_4",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 7.4 处理结论\n\nCLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_6",
+          "source": "02_common_troubleshooting.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "---\n\n## 7. 故障四：CLOUD 指示灯慢闪\n\n### 7.1 故障现象\n\nPWR 电源灯常亮，NET 网络灯常亮，但 CLOUD 云端灯慢闪。设备已经连接局域网，但没有成功连接云端平台。\n\n### 7.2 可能原因\n\n* MQTT 服务器地址填写错误\n* MQTT 端口填写错误\n* 设备密钥错误\n* 当前网络"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_6",
+          "source": "02_common_troubleshooting.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "---\n\n## 7. 故障四：CLOUD 指示灯慢闪\n\n### 7.1 故障现象\n\nPWR 电源灯常亮，NET 网络灯常亮，但 CLOUD 云端灯慢闪。设备已经连接局域网，但没有成功连接云端平台。\n\n### 7.2 可能原因\n\n* MQTT 服务器地址填写错误\n* MQTT 端口填写错误\n* 设备密钥错误\n* 当前网络"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 3,
+      "query_id": "se100_answer_003",
+      "query": "设备在线但平台没有新的温湿度数据，应该检查哪些地方？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_2",
+          "91dec8725aeb4283a229ab87d706c4ac_3",
+          "20de77d0679d4496b307553e4ec6e0dc_5"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_2"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C3",
+          "C1",
+          "C3",
+          "C1",
+          "C3",
+          "C1",
+          "C3",
+          "C1",
+          "C3",
+          "C1"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C3"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，当设备在线但平台没有新的温湿度数据时，应检查以下几个方面：\n\n1. **确认 CLOUD 指示灯是否常亮** [C1]、[C3]。\n2. **查看平台最近一次数据上报时间** [C1]、[C3]。\n3. **检查数据上报周期是否设置过长** [C1]、[C3]。\n4. **确认平台页面没有设置错误的时间筛选条件** [C1]、[C3]。\n5. **检查传感器状态** [C1]、[C3]。\n6. **确认 ALARM 告警灯是否常亮** [C1]。\n\n综上所述，首先确认设备是否确实连接到云端，并检查上报周期和传感器状态，同时注意平台上的筛选条件设置。",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_2",
+          "source": "04_support_ticket_cases.md#chunk_2",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "---\n\n## 4. 工单案例三：设备在线但没有温湿度数据\n\n### 工单编号\n\nSE100-TICKET-2026-003\n\n### 用户反馈\n\n用户反馈设备在平台上显示在线，但最近半小时没有新的温湿度数据。\n\n### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯常亮\n* CLOUD 云端灯常亮\n* ALA"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_8",
+          "source": "02_common_troubleshooting.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 8.4 处理结论\n\n平台显示离线时，应先以设备本地指示灯为准。若 CLOUD 指示灯常亮但平台仍显示离线，可能是平台刷新、绑定关系或云端状态同步问题。\n\n---\n\n## 9. 故障六：数据不上报\n\n### 9.1 故障现象\n\n设备显示在线，但云端平台没有新的温度、湿度或门磁数据。\n\n### 9.2 可能原因\n\n"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_8",
+          "source": "02_common_troubleshooting.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 8.4 处理结论\n\n平台显示离线时，应先以设备本地指示灯为准。若 CLOUD 指示灯常亮但平台仍显示离线，可能是平台刷新、绑定关系或云端状态同步问题。\n\n---\n\n## 9. 故障六：数据不上报\n\n### 9.1 故障现象\n\n设备显示在线，但云端平台没有新的温度、湿度或门磁数据。\n\n### 9.2 可能原因\n\n"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "91dec8725aeb4283a229ab87d706c4ac_2",
+          "source": "03_after_sales_faq.md#chunk_2",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "---\n\n### Q8：设备换了安装地点以后，需要重新配置吗？\n\n如果新地点使用的网络和原网络不同，通常需要重新配置 Wi-Fi 或 MQTT 参数。若使用以太网，也需要确认新网络可以正常访问云端平台。\n\n---\n\n## 4. 本地 Web 配置页问题\n\n### Q9：本地 Web 配置页默认地址是什么？\n\n本地 We"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_4",
+          "source": "02_common_troubleshooting.md#chunk_4",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 7.4 处理结论\n\nCLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 4,
+      "query_id": "se100_answer_004",
+      "query": "打不开 http://192.168.4.1 本地 Web 配置页，应该怎么排查？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "91dec8725aeb4283a229ab87d706c4ac_2",
+          "20de77d0679d4496b307553e4ec6e0dc_6",
+          "40a8598aac8f479ba621edf03b14311d_3"
+        ],
+        "matched_expected_chunk_ids": [
+          "20de77d0679d4496b307553e4ec6e0dc_6"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，您可以按照以下步骤排查无法打开本地 Web 配置页的问题：\n\n1. 确认设备处于配置模式。\n2. 确认连接的 Wi-Fi 名称格式为 SE100-Setup-设备后四位。\n3. 关闭手机移动数据后再次访问。\n4. 在浏览器地址栏输入 `http://192.168.4.1`。\n5. 更换浏览器后再次尝试。\n6. 重启设备后重新进入配置模式。\n7. 如果仍无法访问，建议恢复出厂设置后重新配置。\n\n这些步骤可以帮助您逐步排除可能的原因，确保正确连接到设备的配置热点并访问本地 Web 配置页。[C2][C3][C4]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_5",
+          "source": "02_common_troubleshooting.md#chunk_5",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 9.2 可能原因\n\n* 数据上报周期设置过长\n* 设备刚上线，尚未到上报周期\n* 传感器离线\n* MQTT 连接不稳定\n* 平台设备绑定异常\n* 云端页面筛选条件错误\n\n### 9.3 排查步骤\n\n1. 确认 CLOUD 指示灯是否常亮。\n2. 查看平台最近一次数据上报时间。\n3. 在本地 Web 配置页检查数"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_9",
+          "source": "02_common_troubleshooting.md#chunk_9",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 9.4 处理结论\n\n数据不上报不一定等于设备离线。若 CLOUD 指示灯常亮，应优先检查上报周期、传感器状态、平台绑定和页面筛选条件。\n\n---\n\n## 10. 故障七：无法进入本地 Web 配置页\n\n### 10.1 故障现象\n\n用户连接设备配置热点后，浏览器无法打开本地 Web 配置页。\n\n默认配置页地址为"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_9",
+          "source": "02_common_troubleshooting.md#chunk_9",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 9.4 处理结论\n\n数据不上报不一定等于设备离线。若 CLOUD 指示灯常亮，应优先检查上报周期、传感器状态、平台绑定和页面筛选条件。\n\n---\n\n## 10. 故障七：无法进入本地 Web 配置页\n\n### 10.1 故障现象\n\n用户连接设备配置热点后，浏览器无法打开本地 Web 配置页。\n\n默认配置页地址为"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_6",
+          "source": "02_common_troubleshooting.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 10.4 处理结论\n\n无法进入本地 Web 配置页时，优先检查是否连接到了正确的设备配置热点，以及设备是否处于配置模式。\n\n---\n\n## 11. 故障八：Wi-Fi 配置后仍无法联网\n\n### 11.1 故障现象\n\n用户在本地 Web 配置页保存 Wi-Fi 信息后，设备重启，但 NET 指示灯仍然熄灭或慢闪"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_10",
+          "source": "02_common_troubleshooting.md#chunk_10",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 10.4 处理结论\n\n无法进入本地 Web 配置页时，优先检查是否连接到了正确的设备配置热点，以及设备是否处于配置模式。\n\n---\n\n## 11. 故障八：Wi-Fi 配置后仍无法联网\n\n### 11.1 故障现象\n\n用户在本地 Web 配置页保存 Wi-Fi 信息后，设备重启，但 NET 指示灯仍然熄灭或慢闪"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 5,
+      "query_id": "se100_answer_005",
+      "query": "恢复出厂设置会清除什么？恢复后为什么还需要重新配置 MQTT？",
+      "answer_type": "configuration",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_8",
+          "20de77d0679d4496b307553e4ec6e0dc_9",
+          "91dec8725aeb4283a229ab87d706c4ac_4"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_8",
+          "20de77d0679d4496b307553e4ec6e0dc_9",
+          "91dec8725aeb4283a229ab87d706c4ac_4"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C1"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "恢复出厂设置会清除 Wi-Fi 配置、MQTT 参数和本地告警阈值 [C1][C2][C3][C4][C5]。恢复后需要重新配置 MQTT 地址、端口、设备密钥等信息，因为这些参数在恢复出厂设置时会被清除 [C1]。",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_8",
+          "source": "04_support_ticket_cases.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 最终结论\n\n恢复出厂设置后无法上云，是因为 MQTT 参数和设备密钥被清除但没有重新配置。\n\n### 可复用经验\n\n恢复出厂设置后，不能只重新配置 Wi-Fi，还需要重新配置 MQTT 地址、端口、设备密钥和必要的告警阈值。\n\n---\n\n## 12. 工单摘要生成要求\n\n技术支持助手生成工单摘要时，应包含以下信"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_9",
+          "source": "02_common_troubleshooting.md#chunk_9",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 15.3 注意事项\n\n恢复出厂设置会清除 Wi-Fi 配置、MQTT 参数和本地告警阈值。恢复后需要重新配置设备网络和平台连接信息。\n\n---\n\n## 16. 需要联系售后的情况\n\n出现以下情况时，建议联系售后人员处理：\n\n1. PWR 电源灯始终不亮\n2. 更换网线和路由器端口后 NET 仍不亮\n3. CLO"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "91dec8725aeb4283a229ab87d706c4ac_4",
+          "source": "03_after_sales_faq.md#chunk_4",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "SE-100 只负责监测、显示和上报告警，不负责直接控制空调、风机或其他外部设备。用户需要根据平台告警信息自行处理现场环境。\n\n---\n\n## 7. OTA 升级问题\n\n### Q18：OTA 升级时可以断电吗？\n\n不可以。OTA 升级过程中不要断电。断电可能导致升级失败。设备升级失败后通常会保留当前可用版本，但仍需要"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_14",
+          "source": "02_common_troubleshooting.md#chunk_14",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "外接传感器离线时，应优先检查连接线缆和传感器本身，不要直接判断为云端平台异常。\n\n---\n\n## 15. 恢复出厂设置\n\n### 15.1 适用场景\n\n以下情况可以考虑恢复出厂设置：\n\n* 忘记 Wi-Fi 配置\n* 无法进入原网络\n* MQTT 参数被错误修改\n* 多次配置失败\n* 设备需要重新绑定\n\n### 15."
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_14",
+          "source": "02_common_troubleshooting.md#chunk_14",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "外接传感器离线时，应优先检查连接线缆和传感器本身，不要直接判断为云端平台异常。\n\n---\n\n## 15. 恢复出厂设置\n\n### 15.1 适用场景\n\n以下情况可以考虑恢复出厂设置：\n\n* 忘记 Wi-Fi 配置\n* 无法进入原网络\n* MQTT 参数被错误修改\n* 多次配置失败\n* 设备需要重新绑定\n\n### 15."
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 6,
+      "query_id": "se100_answer_006",
+      "query": "OTA 升级失败后仍显示旧版本，应该怎么处理？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_5",
+          "20de77d0679d4496b307553e4ec6e0dc_7",
+          "91dec8725aeb4283a229ab87d706c4ac_4"
+        ],
+        "matched_expected_chunk_ids": [],
+        "expected_chunk_ok": false,
+        "expected_context_keywords_any": [
+          [
+            "OTA 升级失败",
+            "旧版本",
+            "升级后仍显示旧版本"
+          ],
+          [
+            "不要在升级过程中断电",
+            "连续两次升级失败",
+            "导出日志",
+            "联系售后"
+          ]
+        ],
+        "expected_keyword_ok": true,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C2",
+          "C3",
+          "C5"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C2",
+          "C3",
+          "C5"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，处理OTA升级失败后仍显示旧版本的问题可以按照以下步骤进行：\n\n1. 确认升级过程中设备没有断电。\n2. 检查NET和CLOUD指示灯状态是否正常。\n3. 重启设备后查看当前固件版本。\n4. 在云端平台重新下发升级任务。\n5. 确认当前网络是否稳定。\n6. 如果连续两次升级失败，导出日志并联系售后。\n\n这些步骤可以帮助排查和解决OTA升级失败的问题。[C2][C3][C5]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_11",
+          "source": "02_common_troubleshooting.md#chunk_11",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 11.4 处理结论\n\nWi-Fi 配置失败最常见原因是 Wi-Fi 密码错误、信号弱或路由器限制。排查时不要直接判断为设备硬件故障。\n\n---\n\n## 12. 故障九：OTA 升级失败\n\n### 12.1 故障现象\n\n设备收到 OTA 升级任务后，CLOUD 指示灯快闪一段时间，但升级后仍显示旧版本，或者设备重"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_11",
+          "source": "02_common_troubleshooting.md#chunk_11",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 11.4 处理结论\n\nWi-Fi 配置失败最常见原因是 Wi-Fi 密码错误、信号弱或路由器限制。排查时不要直接判断为设备硬件故障。\n\n---\n\n## 12. 故障九：OTA 升级失败\n\n### 12.1 故障现象\n\n设备收到 OTA 升级任务后，CLOUD 指示灯快闪一段时间，但升级后仍显示旧版本，或者设备重"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_4",
+          "source": "04_support_ticket_cases.md#chunk_4",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯常亮\n* CLOUD 云端灯常亮\n* ALARM 告警灯常亮\n* 平台显示湿度告警\n* 当前湿度为 78%\n* 本地告警阈值设置为 70%\n\n### 排查过程\n\n1. 技术支持人员确认设备联网和云端连接均正常。\n2. 技术支持人员让用户查看平台当前告警事件。"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "20de77d0679d4496b307553e4ec6e0dc_6",
+          "source": "02_common_troubleshooting.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 10.4 处理结论\n\n无法进入本地 Web 配置页时，优先检查是否连接到了正确的设备配置热点，以及设备是否处于配置模式。\n\n---\n\n## 11. 故障八：Wi-Fi 配置后仍无法联网\n\n### 11.1 故障现象\n\n用户在本地 Web 配置页保存 Wi-Fi 信息后，设备重启，但 NET 指示灯仍然熄灭或慢闪"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_12",
+          "source": "02_common_troubleshooting.md#chunk_12",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 12.4 处理结论\n\nOTA 升级失败后，设备通常会保留当前可用版本。不要在升级过程中断电，也不要频繁重复重启设备。\n\n---\n\n## 13. 故障十：ALARM 告警灯常亮\n\n### 13.1 故障现象\n\n设备 PWR、NET、CLOUD 状态正常，但 ALARM 告警灯常亮。\n\n### 13.2 可能原因\n"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 7,
+      "query_id": "se100_answer_007",
+      "query": "ALARM 告警灯常亮是不是设备坏了？应该先看什么？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "91dec8725aeb4283a229ab87d706c4ac_3",
+          "40a8598aac8f479ba621edf03b14311d_4",
+          "20de77d0679d4496b307553e4ec6e0dc_7"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_4",
+          "91dec8725aeb4283a229ab87d706c4ac_3"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": true,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "ALARM 告警灯常亮并不一定表示设备损坏，通常表示存在告警条件。首先应查看平台当前告警事件，并检查本地 Web 配置页中的告警阈值设置。[C1]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_4",
+          "source": "04_support_ticket_cases.md#chunk_4",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯常亮\n* CLOUD 云端灯常亮\n* ALARM 告警灯常亮\n* 平台显示湿度告警\n* 当前湿度为 78%\n* 本地告警阈值设置为 70%\n\n### 排查过程\n\n1. 技术支持人员确认设备联网和云端连接均正常。\n2. 技术支持人员让用户查看平台当前告警事件。"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_12",
+          "source": "02_common_troubleshooting.md#chunk_12",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 12.4 处理结论\n\nOTA 升级失败后，设备通常会保留当前可用版本。不要在升级过程中断电，也不要频繁重复重启设备。\n\n---\n\n## 13. 故障十：ALARM 告警灯常亮\n\n### 13.1 故障现象\n\n设备 PWR、NET、CLOUD 状态正常，但 ALARM 告警灯常亮。\n\n### 13.2 可能原因\n"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_12",
+          "source": "02_common_troubleshooting.md#chunk_12",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 12.4 处理结论\n\nOTA 升级失败后，设备通常会保留当前可用版本。不要在升级过程中断电，也不要频繁重复重启设备。\n\n---\n\n## 13. 故障十：ALARM 告警灯常亮\n\n### 13.1 故障现象\n\n设备 PWR、NET、CLOUD 状态正常，但 ALARM 告警灯常亮。\n\n### 13.2 可能原因\n"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "91dec8725aeb4283a229ab87d706c4ac_3",
+          "source": "03_after_sales_faq.md#chunk_3",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "1. CLOUD 指示灯是否常亮。\n2. 平台最近一次数据上报时间。\n3. 数据上报周期是否设置过长。\n4. 平台页面是否设置了错误的时间筛选条件。\n5. 传感器是否离线。\n6. ALARM 告警灯是否常亮。\n\n如果 CLOUD 灯常亮但长时间没有数据，可以重启设备并等待一个上报周期。\n\n---\n\n### Q13：SE"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_13",
+          "source": "02_common_troubleshooting.md#chunk_13",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "ALARM 告警灯常亮不一定代表设备损坏，通常表示环境数据、传感器状态或门磁状态触发了告警条件。\n\n---\n\n## 14. 故障十一：外接传感器离线\n\n### 14.1 故障现象\n\n平台显示外接传感器离线，或者设备无法读取某一路传感器数据。\n\n### 14.2 可能原因\n\n* 传感器接口松动\n* 传感器线缆损坏\n* 传"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 8,
+      "query_id": "se100_answer_008",
+      "query": "平台提示外接传感器离线，但网关在线，应该优先检查什么？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_6",
+          "20de77d0679d4496b307553e4ec6e0dc_8",
+          "91dec8725aeb4283a229ab87d706c4ac_5"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_6"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C5"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C5"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，当平台提示外接传感器离线但网关在线时，应该优先检查 SENSOR 接口、传感器线缆和传感器本身。[C1][C5]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_6",
+          "source": "04_support_ticket_cases.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 最终结论\n\n外接传感器离线原因是传感器线缆松动。\n\n### 可复用经验\n\n外接传感器离线时，应优先检查 SENSOR 接口、传感器线缆和传感器本身，不应直接判断为云端平台问题。\n\n---\n\n## 9. 工单案例八：平台显示离线但 CLOUD 常亮\n\n### 工单编号\n\nSE100-TICKET-2026-008"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_14",
+          "source": "02_common_troubleshooting.md#chunk_14",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "外接传感器离线时，应优先检查连接线缆和传感器本身，不要直接判断为云端平台异常。\n\n---\n\n## 15. 恢复出厂设置\n\n### 15.1 适用场景\n\n以下情况可以考虑恢复出厂设置：\n\n* 忘记 Wi-Fi 配置\n* 无法进入原网络\n* MQTT 参数被错误修改\n* 多次配置失败\n* 设备需要重新绑定\n\n### 15."
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_14",
+          "source": "02_common_troubleshooting.md#chunk_14",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "外接传感器离线时，应优先检查连接线缆和传感器本身，不要直接判断为云端平台异常。\n\n---\n\n## 15. 恢复出厂设置\n\n### 15.1 适用场景\n\n以下情况可以考虑恢复出厂设置：\n\n* 忘记 Wi-Fi 配置\n* 无法进入原网络\n* MQTT 参数被错误修改\n* 多次配置失败\n* 设备需要重新绑定\n\n### 15."
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_5",
+          "source": "04_support_ticket_cases.md#chunk_5",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯常亮\n* CLOUD 云端灯常亮\n* 当前版本未变化\n* 用户升级过程中曾经拔掉电源\n* 设备重新上电后仍可正常联网\n\n### 排查过程\n\n1. 技术支持人员确认设备仍可正常联网，说明当前可用版本未损坏。\n2. 技术支持人员询问升级过程中是否断电。\n3. 用"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_13",
+          "source": "02_common_troubleshooting.md#chunk_13",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "ALARM 告警灯常亮不一定代表设备损坏，通常表示环境数据、传感器状态或门磁状态触发了告警条件。\n\n---\n\n## 14. 故障十一：外接传感器离线\n\n### 14.1 故障现象\n\n平台显示外接传感器离线，或者设备无法读取某一路传感器数据。\n\n### 14.2 可能原因\n\n* 传感器接口松动\n* 传感器线缆损坏\n* 传"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 9,
+      "query_id": "se100_answer_009",
+      "query": "平台显示离线但现场 CLOUD 灯常亮，这时候应该排查 Wi-Fi 还是平台绑定？",
+      "answer_type": "troubleshooting",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "20de77d0679d4496b307553e4ec6e0dc_4",
+          "91dec8725aeb4283a229ab87d706c4ac_1",
+          "40a8598aac8f479ba621edf03b14311d_6"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_6"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": false,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "根据已知内容，当平台显示设备离线但现场 CLOUD 灯常亮时，应优先检查平台刷新状态和设备绑定关系，而不是直接排查 Wi-Fi 连接问题。具体步骤如下：\n\n1. 检查平台是否已经刷新。\n2. 核对设备在平台上的绑定关系是否正确。\n\n如果确认平台已经刷新且绑定关系正确，再进一步排查其他可能的问题，如 Wi-Fi 连接等。[C1][C2][C3][C4][C5]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_6",
+          "source": "04_support_ticket_cases.md#chunk_6",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 最终结论\n\n外接传感器离线原因是传感器线缆松动。\n\n### 可复用经验\n\n外接传感器离线时，应优先检查 SENSOR 接口、传感器线缆和传感器本身，不应直接判断为云端平台问题。\n\n---\n\n## 9. 工单案例八：平台显示离线但 CLOUD 常亮\n\n### 工单编号\n\nSE100-TICKET-2026-008"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_8",
+          "source": "02_common_troubleshooting.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 8.4 处理结论\n\n平台显示离线时，应先以设备本地指示灯为准。若 CLOUD 指示灯常亮但平台仍显示离线，可能是平台刷新、绑定关系或云端状态同步问题。\n\n---\n\n## 9. 故障六：数据不上报\n\n### 9.1 故障现象\n\n设备显示在线，但云端平台没有新的温度、湿度或门磁数据。\n\n### 9.2 可能原因\n\n"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_8",
+          "source": "02_common_troubleshooting.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 8.4 处理结论\n\n平台显示离线时，应先以设备本地指示灯为准。若 CLOUD 指示灯常亮但平台仍显示离线，可能是平台刷新、绑定关系或云端状态同步问题。\n\n---\n\n## 9. 故障六：数据不上报\n\n### 9.1 故障现象\n\n设备显示在线，但云端平台没有新的温度、湿度或门磁数据。\n\n### 9.2 可能原因\n\n"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "11a4aa6652f84a2881898597120d9d63_7",
+          "source": "02_common_troubleshooting.md#chunk_7",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "CLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断电\n* 局域网断开\n* MQ"
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "0ab2c71fc5194ccc8fdca80a1d47d506_7",
+          "source": "02_common_troubleshooting.md#chunk_7",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "CLOUD 指示灯慢闪时，不应优先怀疑传感器故障。该现象通常与云端连接、MQTT 配置或外网访问有关。\n\n---\n\n## 8. 故障五：平台显示设备离线\n\n### 8.1 故障现象\n\n用户在云端平台看到设备状态为离线，或者平台长时间没有显示设备在线。\n\n### 8.2 可能原因\n\n* 设备断电\n* 局域网断开\n* MQ"
+        }
+      ],
+      "error": null
+    },
+    {
+      "line_no": 10,
+      "query_id": "se100_answer_010",
+      "query": "生成 SE-100 工单摘要时应该包含哪些信息？",
+      "answer_type": "case_summary",
+      "overall_pass": true,
+      "checks": {
+        "has_context_ok": true,
+        "citation_ok": true,
+        "citation_id_valid_ok": true,
+        "citation_format_ok": true,
+        "citation_used_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true,
+        "expected_context_ok": true
+      },
+      "debug": {
+        "has_context": true,
+        "should_have_context": true,
+        "missing_include_groups": [],
+        "bad_keywords": [],
+        "expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_8",
+          "40a8598aac8f479ba621edf03b14311d_0"
+        ],
+        "matched_expected_chunk_ids": [
+          "40a8598aac8f479ba621edf03b14311d_8",
+          "40a8598aac8f479ba621edf03b14311d_0"
+        ],
+        "expected_chunk_ok": true,
+        "expected_context_keywords_any": [],
+        "expected_keyword_ok": false,
+        "missing_context_keyword_groups": [],
+        "visible_citation_ids": [
+          "C1"
+        ],
+        "invalid_visible_citation_ids": [],
+        "unsupported_citation_tokens": [],
+        "service_used_citation_ids": [
+          "C1"
+        ],
+        "service_invalid_citation_ids": [],
+        "answer_was_cleaned": true,
+        "retrieval": {
+          "raw_hits": 5,
+          "filtered_hits": 5,
+          "total_hits": 5,
+          "hybrid_total_hits": 20,
+          "dense_total_hits": 20,
+          "sparse_total_hits": 20
+        }
+      },
+      "answer": "生成 SE-100 工单摘要时，应包含以下信息：\n\n1. 用户反馈的问题。\n2. 当前指示灯状态。\n3. 联网方式。\n4. 已确认的关键事实。\n5. 排查步骤。\n6. 最终原因。\n7. 处理结果。\n8. 是否需要售后继续跟进。\n\n示例摘要格式如下：\n\n用户反馈 SE-100 在平台显示离线。现场 PWR 常亮，NET 慢闪，CLOUD 熄灭，使用 Wi-Fi 联网。排查发现用户更换路由器后 Wi-Fi 密码发生变化，设备仍保存旧 Wi-Fi 配置。指导用户进入配置模式并重新填写 Wi-Fi 信息后，NET 和 CLOUD 指示灯恢复常亮，平台显示设备在线。本工单无需继续售后跟进。 [C1]",
+      "contexts": [
+        {
+          "citation_id": "C1",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_8",
+          "source": "04_support_ticket_cases.md#chunk_8",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 最终结论\n\n恢复出厂设置后无法上云，是因为 MQTT 参数和设备密钥被清除但没有重新配置。\n\n### 可复用经验\n\n恢复出厂设置后，不能只重新配置 Wi-Fi，还需要重新配置 MQTT 地址、端口、设备密钥和必要的告警阈值。\n\n---\n\n## 12. 工单摘要生成要求\n\n技术支持助手生成工单摘要时，应包含以下信"
+        },
+        {
+          "citation_id": "C2",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_0",
+          "source": "04_support_ticket_cases.md#chunk_0",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "# SmartEnv-Gateway SE-100 历史工单案例\n\n## 1. 文档说明\n\n本文档整理 SmartEnv-Gateway SE-100 智能环境监测网关的历史售后工单案例。每个案例包含用户反馈、现场现象、排查过程、最终结论和可复用经验。\n\n本文档用于帮助技术支持助手学习故障排查流程、追问关键信息、生成工"
+        },
+        {
+          "citation_id": "C3",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_5",
+          "source": "04_support_ticket_cases.md#chunk_5",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯常亮\n* CLOUD 云端灯常亮\n* 当前版本未变化\n* 用户升级过程中曾经拔掉电源\n* 设备重新上电后仍可正常联网\n\n### 排查过程\n\n1. 技术支持人员确认设备仍可正常联网，说明当前可用版本未损坏。\n2. 技术支持人员询问升级过程中是否断电。\n3. 用"
+        },
+        {
+          "citation_id": "C4",
+          "chunk_id": "40a8598aac8f479ba621edf03b14311d_3",
+          "source": "04_support_ticket_cases.md#chunk_3",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "### 已知现象\n\n* PWR 电源灯常亮\n* NET 网络灯快闪\n* CLOUD 云端灯熄灭\n* ALARM 告警灯慢闪\n* 用户使用手机配置设备\n* 手机连接过多个 Wi-Fi\n* 手机移动数据处于开启状态\n\n### 排查过程\n\n1. 技术支持人员确认设备处于配置模式。\n2. 技术支持人员让用户检查当前手机连接的 "
+        },
+        {
+          "citation_id": "C5",
+          "chunk_id": "f19379b800084f1c9009154f1cfe81ec_0",
+          "source": "01_product_overview.md#chunk_0",
+          "rerank_score": null,
+          "rerank_rank": null,
+          "text_preview": "# SmartEnv-Gateway SE-100 产品概述\n\n## 1. 文档说明\n\n本文档用于介绍 SmartEnv-Gateway SE-100 智能环境监测网关的基本定位、主要功能、联网方式、指示灯含义和使用边界。\n\nSE-100 是一个受控虚拟产品，用于构建 Personal Knowledge Assist"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

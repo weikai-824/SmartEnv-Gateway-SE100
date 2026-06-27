@@ -1,0 +1,610 @@
+{
+  "summary": {
+    "total_cases": 6,
+    "passed_cases": 6,
+    "failed_cases": 0,
+    "pass_rate": 1.0,
+    "rag_route_ok_rate": 1.0,
+    "ticket_route_ok_rate": 1.0,
+    "create_ticket_ok_rate": 1.0,
+    "active_ticket_ok_rate": 1.0,
+    "final_intent_ok_rate": 1.0,
+    "final_stage_ok_rate": 1.0,
+    "must_include_ok_rate": 1.0,
+    "must_not_include_ok_rate": 1.0
+  },
+  "case_results": [
+    {
+      "case_id": "support_e2e_001",
+      "case_name": "纯技术诊断问题不应创建工单",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [
+        "rag_diagnose"
+      ],
+      "all_tool_agents": [
+        "RagDiagAgent"
+      ],
+      "final_intent": "RAG诊断",
+      "final_stage": "诊断完成",
+      "final_active_ticket_id": null,
+      "final_answer": "您的 SmartEnv-Gateway SE-100 显示离线且 SYS 灯不亮，可能是由于网络连接不稳定或其他原因导致的。首先，请确保设备已正确连接到 Wi-Fi，并且没有频繁断开连接。您可以尝试重启设备，或者检查设备的指示灯状态，如 PWR 电源灯和 NET 网络灯是否正常。如果问题依旧存在，建议您导出运行日志并联系售后支持获取进一步的帮助。[C1] [C2]",
+      "next_action": "按建议步骤排查；如果问题仍未解决，可继续创建工单",
+      "final_ticket": null,
+      "turn_count": 1,
+      "turn_results": [
+        {
+          "session_id": "S2026062120020016F9A2",
+          "intent": "RAG诊断",
+          "stage": "诊断完成",
+          "final_answer": "您的 SmartEnv-Gateway SE-100 显示离线且 SYS 灯不亮，可能是由于网络连接不稳定或其他原因导致的。首先，请确保设备已正确连接到 Wi-Fi，并且没有频繁断开连接。您可以尝试重启设备，或者检查设备的指示灯状态，如 PWR 电源灯和 NET 网络灯是否正常。如果问题依旧存在，建议您导出运行日志并联系售后支持获取进一步的帮助。[C1] [C2]",
+          "next_action": "按建议步骤排查；如果问题仍未解决，可继续创建工单",
+          "active_ticket_id": null,
+          "tool_call_count": 1,
+          "tool_calls": [
+            {
+              "agent": "RagDiagAgent",
+              "tool": "rag_diagnose"
+            }
+          ],
+          "diagnosis": {
+            "problem_type": "云端连接问题",
+            "known_symptoms": [
+              "SE-100 网关显示离线",
+              "SYS 灯不亮"
+            ],
+            "possible_causes": [
+              "网络连接不稳定",
+              "设备未正确连接到 Wi-Fi",
+              "指示灯故障"
+            ],
+            "priority_steps": [
+              "检查并确保设备已正确连接到 Wi-Fi",
+              "重启设备",
+              "检查 PWR 电源灯和 NET 网络灯是否正常"
+            ],
+            "missing_information": [],
+            "need_after_sales": false,
+            "evidence_citations": [
+              "C1",
+              "C2"
+            ]
+          },
+          "ticket": null
+        }
+      ]
+    },
+    {
+      "case_id": "support_e2e_002",
+      "case_name": "明确要求创建工单",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [
+        "rag_diagnose",
+        "create_ticket"
+      ],
+      "all_tool_agents": [
+        "RagDiagAgent",
+        "TicketAgent"
+      ],
+      "final_intent": "创建工单",
+      "final_stage": "待工程师处理",
+      "final_active_ticket_id": "T20260621CD6753",
+      "final_answer": "您的 SmartEnv-Gateway SE-100 网关一直离线且 WAN 灯未亮，已经检查过网线但仍无法解决问题。根据历史工单案例，可能存在以下几种情况：1. 设备未正确连接局域网，可能是 Wi-Fi 配置问题；2. 设备在 OTA 升级过程中断电导致升级失败。建议您首先检查 Wi-Fi 配置是否正确，并尝试重新启动设备进行 OTA 升级。如果问题仍然存在，请创建工单以便进一步诊断。[C1] [C2]\n\n您的工单已成功创建，编号为 T20260621CD6753。工程师会尽快联系您进行进一步诊断。",
+      "next_action": "等待工程师处理，或继续补充 SN、指示灯状态、联网方式等信息",
+      "final_ticket": {
+        "ticket_id": "T20260621CD6753",
+        "title": "SE-100 网关一直离线，WAN 灯未亮",
+        "problem_type": "云端连接问题",
+        "priority": "P2",
+        "status": "待工程师处理",
+        "summary": "用户反映 SE-100 网关一直离线且 WAN 灯未亮，已经检查过网线，但问题仍未解决。",
+        "missing_information": [],
+        "notes": []
+      },
+      "turn_count": 1,
+      "turn_results": [
+        {
+          "session_id": "S20260621200207C2288E",
+          "intent": "创建工单",
+          "stage": "待工程师处理",
+          "final_answer": "您的 SmartEnv-Gateway SE-100 网关一直离线且 WAN 灯未亮，已经检查过网线但仍无法解决问题。根据历史工单案例，可能存在以下几种情况：1. 设备未正确连接局域网，可能是 Wi-Fi 配置问题；2. 设备在 OTA 升级过程中断电导致升级失败。建议您首先检查 Wi-Fi 配置是否正确，并尝试重新启动设备进行 OTA 升级。如果问题仍然存在，请创建工单以便进一步诊断。[C1] [C2]\n\n您的工单已成功创建，编号为 T20260621CD6753。工程师会尽快联系您进行进一步诊断。",
+          "next_action": "等待工程师处理，或继续补充 SN、指示灯状态、联网方式等信息",
+          "active_ticket_id": "T20260621CD6753",
+          "tool_call_count": 2,
+          "tool_calls": [
+            {
+              "agent": "RagDiagAgent",
+              "tool": "rag_diagnose"
+            },
+            {
+              "agent": "TicketAgent",
+              "tool": "create_ticket"
+            }
+          ],
+          "diagnosis": {
+            "problem_type": "云端连接问题",
+            "known_symptoms": [
+              "SE-100 网关一直离线",
+              "WAN 灯未亮",
+              "已经检查过网线"
+            ],
+            "possible_causes": [
+              "Wi-Fi 配置问题",
+              "OTA 升级过程中断电导致升级失败"
+            ],
+            "priority_steps": [
+              "检查 Wi-Fi 配置是否正确",
+              "尝试重新启动设备进行 OTA 升级"
+            ],
+            "missing_information": [],
+            "need_after_sales": false,
+            "evidence_citations": [
+              "C1",
+              "C2"
+            ]
+          },
+          "ticket": {
+            "ticket_id": "T20260621CD6753",
+            "title": "SE-100 网关一直离线，WAN 灯未亮",
+            "problem_type": "云端连接问题",
+            "priority": "P2",
+            "status": "待工程师处理",
+            "summary": "用户反映 SE-100 网关一直离线且 WAN 灯未亮，已经检查过网线，但问题仍未解决。",
+            "missing_information": [],
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "support_e2e_003",
+      "case_name": "创建工单后补充现场信息",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [
+        "rag_diagnose",
+        "create_ticket",
+        "add_ticket_note"
+      ],
+      "all_tool_agents": [
+        "RagDiagAgent",
+        "TicketAgent",
+        "TicketAgent"
+      ],
+      "final_intent": "追加备注",
+      "final_stage": "待工程师处理",
+      "final_active_ticket_id": "T202606213A65D8",
+      "final_answer": "已将您的补充信息添加到工单中。设备安装位置为3号楼弱电间，联系人为张工。",
+      "next_action": "等待用户继续补充信息或查询处理进展",
+      "final_ticket": {
+        "ticket_id": "T202606213A65D8",
+        "title": "SE-100 网关无法联网",
+        "problem_type": "联网问题",
+        "priority": "P2",
+        "status": "待工程师处理",
+        "summary": "客户反映 SE-100 网关无法联网，已指导客户进行了初步排查，但问题仍未解决。",
+        "missing_information": [],
+        "notes": [
+          {
+            "note": "设备安装位置：3号楼弱电间；联系人：张工",
+            "created_at": "2026-06-21 20:02:34"
+          }
+        ]
+      },
+      "turn_count": 2,
+      "turn_results": [
+        {
+          "session_id": "S20260621200219FAC25C",
+          "intent": "创建工单",
+          "stage": "待工程师处理",
+          "final_answer": "根据历史案例，您的设备可能是因为网络配置问题导致无法联网。请检查以下步骤：1. 确认电源适配器是否插紧；2. 更换插座后再次通电；3. 检查设备电源接口是否松动；4. 确认网线已插入 SE-100 的 LAN 接口；5. 检查路由器或交换机端口指示灯是否正常；6. 更换一根网线后再次测试；7. 将网线插到其他路由器端口；8. 重启 SE-100，等待 2 分钟后观察 NET 指示灯。如果以上步骤都无法解决问题，建议您联系售后进行进一步检测。[C1] [C2] [C3]\n\n已为您创建工单，编号为 T202606213A65D8。我们的工程师会尽快联系您进行上门服务。",
+          "next_action": "等待工程师处理，或继续补充 SN、指示灯状态、联网方式等信息",
+          "active_ticket_id": "T202606213A65D8",
+          "tool_call_count": 2,
+          "tool_calls": [
+            {
+              "agent": "RagDiagAgent",
+              "tool": "rag_diagnose"
+            },
+            {
+              "agent": "TicketAgent",
+              "tool": "create_ticket"
+            }
+          ],
+          "diagnosis": {
+            "problem_type": "联网问题",
+            "known_symptoms": [
+              "设备无法联网"
+            ],
+            "possible_causes": [
+              "电源适配器问题",
+              "网线未插好",
+              "路由器或交换机端口异常",
+              "Wi-Fi 配置未完成",
+              "Wi-Fi 名称或密码错误",
+              "设备未获取到 IP 地址"
+            ],
+            "priority_steps": [
+              "确认电源适配器是否插紧",
+              "更换插座后再次通电",
+              "确认网线已插入 SE-100 的 LAN 接口",
+              "检查路由器或交换机端口指示灯是否正常",
+              "更换一根网线后再次测试",
+              "将网线插到其他路由器端口",
+              "重启 SE-100，等待 2 分钟后观察 NET 指示灯"
+            ],
+            "missing_information": [],
+            "need_after_sales": true,
+            "evidence_citations": [
+              "C1",
+              "C2",
+              "C3"
+            ]
+          },
+          "ticket": {
+            "ticket_id": "T202606213A65D8",
+            "title": "SE-100 网关无法联网",
+            "problem_type": "联网问题",
+            "priority": "P2",
+            "status": "待工程师处理",
+            "summary": "客户反映 SE-100 网关无法联网，已指导客户进行了初步排查，但问题仍未解决。",
+            "missing_information": [],
+            "notes": []
+          }
+        },
+        {
+          "session_id": "S20260621200219FAC25C",
+          "intent": "追加备注",
+          "stage": "待工程师处理",
+          "final_answer": "已将您的补充信息添加到工单中。设备安装位置为3号楼弱电间，联系人为张工。",
+          "next_action": "等待用户继续补充信息或查询处理进展",
+          "active_ticket_id": "T202606213A65D8",
+          "tool_call_count": 1,
+          "tool_calls": [
+            {
+              "agent": "TicketAgent",
+              "tool": "add_ticket_note"
+            }
+          ],
+          "diagnosis": null,
+          "ticket": {
+            "ticket_id": "T202606213A65D8",
+            "title": "SE-100 网关无法联网",
+            "problem_type": "联网问题",
+            "priority": "P2",
+            "status": "待工程师处理",
+            "summary": "客户反映 SE-100 网关无法联网，已指导客户进行了初步排查，但问题仍未解决。",
+            "missing_information": [],
+            "notes": [
+              {
+                "note": "设备安装位置：3号楼弱电间；联系人：张工",
+                "created_at": "2026-06-21 20:02:34"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "support_e2e_004",
+      "case_name": "查询当前会话中的工单",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [
+        "rag_diagnose",
+        "create_ticket",
+        "get_ticket_detail"
+      ],
+      "all_tool_agents": [
+        "RagDiagAgent",
+        "TicketAgent",
+        "TicketAgent"
+      ],
+      "final_intent": "查询工单",
+      "final_stage": "待用户补充",
+      "final_active_ticket_id": "T20260621C99FE8",
+      "final_answer": "工单编号 T20260621C99FE8 的详情如下：\n- 标题：SE-100 网关频繁掉线\n- 类型：联网问题\n- 优先级：P2\n- 状态：待用户补充\n- 摘要：用户反馈 SE-100 网关频繁掉线，可能的原因包括网络不稳定、硬件故障、Wi-Fi 配置错误或软件问题。需要用户提供网络环境、硬件状态和软件版本等信息。\n- 缺失信息：网络环境、硬件状态、软件版本",
+      "next_action": "等待用户继续补充信息或查询处理进展",
+      "final_ticket": {
+        "ticket_id": "T20260621C99FE8",
+        "title": "SE-100 网关频繁掉线",
+        "problem_type": "联网问题",
+        "priority": "P2",
+        "status": "待用户补充",
+        "summary": "用户反馈 SE-100 网关频繁掉线，可能的原因包括网络不稳定、硬件故障、Wi-Fi 配置错误或软件问题。需要用户提供网络环境、硬件状态和软件版本等信息。",
+        "missing_information": [
+          "网络环境",
+          "硬件状态",
+          "软件版本"
+        ],
+        "notes": []
+      },
+      "turn_count": 2,
+      "turn_results": [
+        {
+          "session_id": "S20260621200237E0E005",
+          "intent": "创建工单",
+          "stage": "待用户补充",
+          "final_answer": "您的 SE-100 网关频繁掉线可能是由于网络不稳定、硬件或软件问题引起的。请检查您的网络环境，确保路由器和网关之间的连接稳定。此外，确认网关的 Wi-Fi 配置是否正确，并检查是否有任何硬件故障。如果问题持续存在，建议您尝试恢复出厂设置或联系售后支持进行进一步检查。[C1] [C2]\n\n已为您创建工单 T20260621C99FE8，关于 SE-100 网关频繁掉线的问题，需要您提供网络环境、硬件状态和软件版本等信息。",
+          "next_action": "等待工程师处理，或继续补充 SN、指示灯状态、联网方式等信息",
+          "active_ticket_id": "T20260621C99FE8",
+          "tool_call_count": 2,
+          "tool_calls": [
+            {
+              "agent": "RagDiagAgent",
+              "tool": "rag_diagnose"
+            },
+            {
+              "agent": "TicketAgent",
+              "tool": "create_ticket"
+            }
+          ],
+          "diagnosis": {
+            "problem_type": "联网问题",
+            "known_symptoms": [
+              "频繁掉线"
+            ],
+            "possible_causes": [
+              "网络不稳定",
+              "硬件故障",
+              "Wi-Fi 配置错误",
+              "软件问题"
+            ],
+            "priority_steps": [
+              "检查网络环境",
+              "确认 Wi-Fi 配置",
+              "恢复出厂设置"
+            ],
+            "missing_information": [
+              "网络环境",
+              "硬件状态",
+              "软件版本"
+            ],
+            "need_after_sales": true,
+            "evidence_citations": [
+              "C1",
+              "C2"
+            ]
+          },
+          "ticket": {
+            "ticket_id": "T20260621C99FE8",
+            "title": "SE-100 网关频繁掉线",
+            "problem_type": "联网问题",
+            "priority": "P2",
+            "status": "待用户补充",
+            "summary": "用户反馈 SE-100 网关频繁掉线，可能的原因包括网络不稳定、硬件故障、Wi-Fi 配置错误或软件问题。需要用户提供网络环境、硬件状态和软件版本等信息。",
+            "missing_information": [
+              "网络环境",
+              "硬件状态",
+              "软件版本"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "session_id": "S20260621200237E0E005",
+          "intent": "查询工单",
+          "stage": "待用户补充",
+          "final_answer": "工单编号 T20260621C99FE8 的详情如下：\n- 标题：SE-100 网关频繁掉线\n- 类型：联网问题\n- 优先级：P2\n- 状态：待用户补充\n- 摘要：用户反馈 SE-100 网关频繁掉线，可能的原因包括网络不稳定、硬件故障、Wi-Fi 配置错误或软件问题。需要用户提供网络环境、硬件状态和软件版本等信息。\n- 缺失信息：网络环境、硬件状态、软件版本",
+          "next_action": "等待用户继续补充信息或查询处理进展",
+          "active_ticket_id": "T20260621C99FE8",
+          "tool_call_count": 1,
+          "tool_calls": [
+            {
+              "agent": "TicketAgent",
+              "tool": "get_ticket_detail"
+            }
+          ],
+          "diagnosis": null,
+          "ticket": {
+            "ticket_id": "T20260621C99FE8",
+            "title": "SE-100 网关频繁掉线",
+            "problem_type": "联网问题",
+            "priority": "P2",
+            "status": "待用户补充",
+            "summary": "用户反馈 SE-100 网关频繁掉线，可能的原因包括网络不稳定、硬件故障、Wi-Fi 配置错误或软件问题。需要用户提供网络环境、硬件状态和软件版本等信息。",
+            "missing_information": [
+              "网络环境",
+              "硬件状态",
+              "软件版本"
+            ],
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "support_e2e_005",
+      "case_name": "更新当前工单为已解决",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "final_intent_ok": true,
+        "final_stage_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [
+        "rag_diagnose",
+        "create_ticket",
+        "update_ticket_status"
+      ],
+      "all_tool_agents": [
+        "RagDiagAgent",
+        "TicketAgent",
+        "TicketAgent"
+      ],
+      "final_intent": "更新状态",
+      "final_stage": "已解决",
+      "final_active_ticket_id": "T20260621845B80",
+      "final_answer": "已将工单状态更新为已解决。",
+      "next_action": "当前工单已进入终态，暂无需继续补充信息；如出现新问题，请创建新工单。",
+      "final_ticket": {
+        "ticket_id": "T20260621845B80",
+        "title": "SE-100 网关无法接入平台",
+        "problem_type": "云端连接问题",
+        "priority": "P2",
+        "status": "已解决",
+        "summary": "用户反映 SE-100 网关无法接入平台，已尝试检查电源和网络连接，但问题仍未解决。",
+        "missing_information": [],
+        "notes": []
+      },
+      "turn_count": 2,
+      "turn_results": [
+        {
+          "session_id": "S20260621200257356A7E",
+          "intent": "创建工单",
+          "stage": "待用户补充",
+          "final_answer": "请检查以下内容：1. 确认电源适配器是否插紧，并更换插座后再次通电。2. 检查设备电源接口是否松动。3. 确认网线已插入 SE-100 的 LAN 接口，并检查路由器或交换机端口指示灯是否正常。4. 重启 SE-100，等待 2 分钟后观察 NET 指示灯。如果以上步骤均无效果，建议联系售后处理。[C1] [C2]\n\n已为您创建工单 T20260621845B80，关于 SE-100 网关无法接入平台的问题，需要您提供网线是否插紧、路由器或交换机端口指示灯状态以及是否更换过 Wi-Fi 名称或密码等信息。",
+          "next_action": "等待工程师处理，或继续补充 SN、指示灯状态、联网方式等信息",
+          "active_ticket_id": "T20260621845B80",
+          "tool_call_count": 2,
+          "tool_calls": [
+            {
+              "agent": "RagDiagAgent",
+              "tool": "rag_diagnose"
+            },
+            {
+              "agent": "TicketAgent",
+              "tool": "create_ticket"
+            }
+          ],
+          "diagnosis": {
+            "problem_type": "云端连接问题",
+            "known_symptoms": [
+              "设备无法接入平台"
+            ],
+            "possible_causes": [
+              "电源问题",
+              "网络连接问题"
+            ],
+            "priority_steps": [
+              "确认电源适配器是否插紧，并更换插座后再次通电",
+              "检查设备电源接口是否松动",
+              "确认网线已插入 SE-100 的 LAN 接口，并检查路由器或交换机端口指示灯是否正常",
+              "重启 SE-100，等待 2 分钟后观察 NET 指示灯"
+            ],
+            "missing_information": [
+              "网线是否插紧",
+              "路由器或交换机端口指示灯状态",
+              "是否更换过 Wi-Fi 名称或密码"
+            ],
+            "need_after_sales": false,
+            "evidence_citations": [
+              "C1",
+              "C2"
+            ]
+          },
+          "ticket": {
+            "ticket_id": "T20260621845B80",
+            "title": "SE-100 网关无法接入平台",
+            "problem_type": "云端连接问题",
+            "priority": "P2",
+            "status": "待用户补充",
+            "summary": "用户反映 SE-100 网关无法接入平台，已尝试检查电源和网络连接，但问题仍未解决。",
+            "missing_information": [
+              "网线是否插紧",
+              "路由器或交换机端口指示灯状态",
+              "是否更换过 Wi-Fi 名称或密码"
+            ],
+            "notes": []
+          }
+        },
+        {
+          "session_id": "S20260621200257356A7E",
+          "intent": "更新状态",
+          "stage": "已解决",
+          "final_answer": "已将工单状态更新为已解决。",
+          "next_action": "当前工单已进入终态，暂无需继续补充信息；如出现新问题，请创建新工单。",
+          "active_ticket_id": "T20260621845B80",
+          "tool_call_count": 1,
+          "tool_calls": [
+            {
+              "agent": "TicketAgent",
+              "tool": "update_ticket_status"
+            }
+          ],
+          "diagnosis": null,
+          "ticket": {
+            "ticket_id": "T20260621845B80",
+            "title": "SE-100 网关无法接入平台",
+            "problem_type": "云端连接问题",
+            "priority": "P2",
+            "status": "已解决",
+            "summary": "用户反映 SE-100 网关无法接入平台，已尝试检查电源和网络连接，但问题仍未解决。",
+            "missing_information": [],
+            "notes": []
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "support_e2e_006",
+      "case_name": "没有当前工单时不能凭空补充备注",
+      "passed": true,
+      "checks": {
+        "rag_route_ok": true,
+        "ticket_route_ok": true,
+        "create_ticket_ok": true,
+        "active_ticket_ok": true,
+        "must_include_ok": true,
+        "must_not_include_ok": true
+      },
+      "all_tool_names": [],
+      "all_tool_agents": [],
+      "final_intent": "缺少工单的补充信息",
+      "final_stage": "缺少工单编号",
+      "final_active_ticket_id": null,
+      "final_answer": "当前没有正在处理的工单，无法直接补充备注。请先创建工单，或提供需要补充信息的工单编号。",
+      "next_action": "请提供工单编号，或先描述问题并创建工单",
+      "final_ticket": null,
+      "turn_count": 1,
+      "turn_results": [
+        {
+          "session_id": "S20260621200315BD9080",
+          "intent": "缺少工单的补充信息",
+          "stage": "缺少工单编号",
+          "final_answer": "当前没有正在处理的工单，无法直接补充备注。请先创建工单，或提供需要补充信息的工单编号。",
+          "next_action": "请提供工单编号，或先描述问题并创建工单",
+          "active_ticket_id": null,
+          "tool_call_count": 0,
+          "tool_calls": [],
+          "diagnosis": null,
+          "ticket": null
+        }
+      ]
+    }
+  ]
+}
