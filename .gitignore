@@ -1,0 +1,89 @@
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.local
+.env.dev
+.env.prod
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+
+# =========================
+# Data files
+# =========================
+data/raw/*
+data/processed/*
+data/uploads/*
+data/tickets.db
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/uploads/.gitkeep
+
+# =========================
+# Logs
+# =========================
+logs/*
+!logs/.gitkeep
+
+# =========================
+# Local models
+# =========================
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Milvus / Docker local volumes
+# =========================
+volumes/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+# =========================
+# Extra local runtime files
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# keep env template only
+.env.*
+!.env.example
+
+
+
+
+
+
+
+
+
